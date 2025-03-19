@@ -25,3 +25,17 @@ function mostrarAmigos() {
         listaAmigos.appendChild(item);
     });
 }
+
+function sortearAmigo() {
+    if (nombresAmigos.length === 0) {
+        alert('Debes ingresar al menos 2 amigos');
+        return;
+    }
+
+    let amigoRandom = nombresAmigos[Math.floor(Math.random() * nombresAmigos.length)];
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `${amigoRandom} es tu amigo secreto`;
+
+    let limpiarLista = document.getElementById('listaAmigos');
+    limpiarLista.innerHTML = '';
+}
