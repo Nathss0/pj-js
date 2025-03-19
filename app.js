@@ -2,16 +2,26 @@
 let nombresAmigos = [];
 
 function agregarAmigo() {
-    let inputAmigo = document.getElementById('nombre');
+    let inputAmigo = document.getElementById('amigo');
     let nombreAmigo = inputAmigo.value;
-
     if (!nombreAmigo) {
-        alert('Debes ingresar un nombre');
+        alert('Debes ingresar un nombre');  
         return;
     }
 
     nombresAmigos.push(nombreAmigo);
     inputAmigo.value = '';
     inputAmigo.focus();
-    
+    mostrarAmigos();
+}
+
+function mostrarAmigos() {
+    let listaAmigos = document.getElementById('listaAmigos');
+    listaAmigos.innerHTML = '';
+
+    nombresAmigos.forEach((nombre) => {
+        let item = document.createElement('li');
+        item.textContent = nombre;
+        listaAmigos.appendChild(item);
+    });
 }
